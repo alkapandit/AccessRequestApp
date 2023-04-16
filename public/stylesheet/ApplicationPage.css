@@ -1,0 +1,46 @@
+.applicationpage {
+}
+
+.column1 {
+  background-color: #01426a;
+  height: 100vh;
+}
+.column1 button {
+  background-color: rgba(250, 235, 215, 0.622);
+  color: #01426a;
+  font-weight: bold;
+  margin-top: 2.5rem;
+}
+.column1 a.active > button {
+  background: rgb(250, 235, 215);
+}
+.column1 a.active > button:hover {
+  color: #01426a;
+}
+.column1 button:hover {
+  background-color: #02304c;
+  color: white;
+}
+.column1 button:active {
+  color: white !important;
+}
+.column2 {
+}
+.mainpage {
+  height: 100vh;
+}
+.user-column {
+  font-size: 500%;
+  font-weight: bold;
+  color: #01426a;
+  text-align: center;
+}
+.logo-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.logo-column img {
+  width: 50%;
+}

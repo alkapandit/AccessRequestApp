@@ -1,0 +1,30 @@
+.ots {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.ots .uservalidate {
+  padding: 1rem;
+  font-weight: 600;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+.ots .uservalidate span {
+  font-size: large;
+}
+.ots .uservalidate input {
+  margin-left: 1rem;
+  margin-right: 15rem;
+  /* border-style: none; */
+  border-color: rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 0.3rem 1rem;
+  font-size: medium;
+  font-weight: 500;
+}
+.ots .uservalidate button {
+  background-color: #01426a;
+  font-weight: 600;
+  color: white;
+}
