@@ -14,17 +14,154 @@
   font-size: large;
 }
 .ots .uservalidate input {
+  margin-right: 5rem;
   margin-left: 1rem;
-  margin-right: 15rem;
-  /* border-style: none; */
-  border-color: rgba(0, 0, 0, 0.15);
+  border-style: none;
+  background-color: rgb(243, 242, 242);
+  border-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 0.3rem 1rem;
-  font-size: medium;
+  font-size: 0.95rem;
   font-weight: 500;
+}
+.ots .uservalidate input:focus-visible {
+  outline-color: rgba(0, 0, 0, 0.1) !important;
 }
 .ots .uservalidate button {
   background-color: #01426a;
   font-weight: 600;
   color: white;
+}
+.ots .uservalidate button:active {
+  background-color: white;
+  font-weight: 600;
+  color: #01426a;
+}
+
+.ots-insertUserDetails {
+  border-radius: 30px;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  margin: 2rem 5rem;
+  margin-top: 4rem;
+  background-color: white;
+}
+.ots-insertUserDetails h2 {
+  font-weight: bold;
+  padding-top: 1rem;
+  text-align: center;
+}
+.ots-insertUserDetails form {
+  font-weight: 600;
+  padding: 2rem 5rem;
+}
+.ots-insertUserDetails form button {
+  margin-top: 2rem;
+  background-color: #01426a;
+}
+.ots-insertUserDetails form button:hover {
+  background-color: #02304c;
+}
+.ots-insertUserDetails form button:active {
+  color: white !important;
+}
+
+.ots-updateUserDetails {
+  border-radius: 30px;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  margin: 2rem 5rem;
+  margin-top: 4rem;
+  background-color: white;
+}
+.ots-updateUserDetails h2 {
+  font-weight: bold;
+  padding-top: 1rem;
+  text-align: center;
+}
+.ots-updateUserDetails form {
+  font-weight: 600;
+  padding: 2rem 5rem;
+}
+.ots-updateUserDetails form button {
+  width: 50%;
+  margin: auto;
+  color: white;
+  padding: 0.3rem 0;
+  text-align: center;
+  margin-top: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 15px;
+  border: 2px solid #01426a;
+  background-color: #01426a;
+}
+.ots-updateUserDetails form button:hover {
+  background-color: white;
+  color: #01426a;
+  border: 2px solid #01426a;
+}
+.ots-updateUserDetails form button:active {
+  color: white !important;
+}
+.ots-updateUserDetails input,
+.ots-updateUserDetails select {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+.ots-updateUserDetails .form-error-message,
+.ots-insertUserDetails .form-error-message {
+  font-size: small;
+  color: crimson;
+}
+
+.ots-userDetails {
+  border-radius: 30px;
+
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  margin: 2rem 5rem;
+  margin-top: 4rem;
+  background-color: white;
+}
+.ots-userDetails h2 {
+  font-weight: bold;
+  padding-top: 1rem;
+  text-align: center;
+}
+.ots-userDetails form {
+  font-weight: 600;
+  padding: 2rem 5rem;
+}
+.ots-userDetails .link:hover {
+  background-color: white;
+  color: #01426a;
+  border: 2px solid #01426a;
+}
+/* .ots-userDetails form button:active {
+  color: white !important;
+} */
+
+.ots-userDetails .link {
+  width: 50%;
+  margin: auto;
+  color: white;
+  padding: 0.3rem 0;
+  text-align: center;
+  margin-top: 2rem;
+  text-decoration: none;
+  border-radius: 15px;
+  border: 2px solid #01426a;
+  background-color: #01426a;
+}
+
+.ots-userDetails select,
+.ots-userDetails input {
+  background-color: rgb(243, 242, 242);
+  border-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
 }

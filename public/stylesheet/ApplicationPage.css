@@ -1,4 +1,17 @@
-.applicationpage {
+.applicationpage .home-pic {
+  width: 35%;
+  color: white;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  flex-direction: column;
+  background-color: white;
+  /* margin-bottom: 5rem; */
+}
+.applicationpage .back-btn {
+  width: 15%;
+
+  color: white;
 }
 
 .column1 {
@@ -25,6 +38,7 @@
   color: white !important;
 }
 .column2 {
+  overflow-y: scroll;
 }
 .mainpage {
   height: 100vh;
@@ -43,4 +57,9 @@
 }
 .logo-column img {
   width: 50%;
+}
+
+.user-column,
+.logo-column {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }

@@ -4,3 +4,6 @@ body {
   scroll-behavior: smooth;
   font-family: "Montserrat";
 }
+.App {
+  height: 100vh;
+}

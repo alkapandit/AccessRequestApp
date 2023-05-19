@@ -1,13 +1,12 @@
-import { Route, Router, Routes } from "react-router-dom";
-import Home from "./Home";
+import { Route, Routes } from "react-router-dom";
 import ApplicationPage from "./ApplicationPage";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/allapps/*" element={<ApplicationPage />} />
+        {/* <Route path="/" element={<Home />} /> */}
+        <Route path="/*" element={<ApplicationPage />} />
       </Routes>
     </div>
   );
