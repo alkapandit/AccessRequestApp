@@ -4,6 +4,7 @@ import InsertUserDeatils from "./InsertUserDetails";
 import UserDetails from "./UserDetails";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import UpdateUserDetails from "./UpdateUserDetails";
+import swal from "sweetalert";
 
 const OutOfServiceApp = (props) => {
   const [existingUser, setExistingUser] = useState();
@@ -13,7 +14,19 @@ const OutOfServiceApp = (props) => {
 
   const validateUser = (username) => {
     if (username === "") {
-      alert("Please Enter username for validation");
+      swal({
+        title: "OOPS!",
+        text: "Please Enter username for validation",
+        icon: "warning",
+        button: {
+          text: "OK",
+          value: true,
+          visible: true,
+          className: "ok-btn",
+          closeModal: true,
+        },
+      });
+
       setUserData(null);
       setExistingUser(null);
       return;
@@ -30,8 +43,33 @@ const OutOfServiceApp = (props) => {
       .catch((error) => {
         console.log(error.response.status);
         if (error.response.status === 404) {
-          alert("User does not exists");
-          setExistingUser(false);
+          swal({
+            title: "User doesn't exist!",
+            text: "Do you want to add new record for this user?",
+            icon: "info",
+            dangerMode: true,
+            buttons: {
+              confirm: {
+                text: "Confirm",
+                value: true,
+                visible: true,
+                className: "confirm-btn",
+                closeModal: true,
+              },
+              cancel: {
+                text: "Cancel",
+                value: null,
+                visible: true,
+                className: "cancel-btn",
+                closeModal: true,
+              },
+            },
+          }).then((choice) => {
+            console.log(choice);
+            if (choice) {
+              setExistingUser(false);
+            }
+          });
         } else {
           console("Something went wrong! Please try again later");
         }

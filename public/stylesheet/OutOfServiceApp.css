@@ -165,3 +165,34 @@
   font-size: 0.9rem;
   font-weight: 500;
 }
+
+.ok-btn,
+.cancel-btn,
+.confirm-btn {
+  color: white;
+  font-weight: bold;
+}
+.ok-btn {
+  background-color: #01426a;
+}
+.cancel-btn {
+  background-color: crimson;
+}
+.confirm-btn {
+  background-color: green;
+}
+.ok-btn:hover {
+  color: #01426a;
+  border-color: #01426a;
+  background-color: white;
+}
+.cancel-btn:hover {
+  color: crimson;
+  border-color: crimson;
+  background-color: white !important;
+}
+.confirm-btn:hover {
+  color: green;
+  border-color: green;
+  background-color: white !important;
+}

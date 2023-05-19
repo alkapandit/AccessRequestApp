@@ -1,6 +1,7 @@
 import axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 function UpdateUserDetails(props) {
   const navigate = useNavigate();
@@ -128,19 +129,51 @@ function UpdateUserDetails(props) {
                 console.log(response);
                 console.log(response.status);
                 if (response.status === 200) {
-                  alert("User Details updated successfully.");
-
+                  swal({
+                    title: "Success!",
+                    text: "User Details updated successfully.",
+                    icon: "success",
+                    button: {
+                      text: "OK",
+                      value: true,
+                      visible: true,
+                      className: "ok-btn",
+                      closeModal: true,
+                    },
+                  });
                   props.setExistingUser(null);
                   props.setUserName("");
                   props.validateUser(username);
                   navigate("/ots");
                 } else {
-                  alert("Details not updated! try again");
+                  swal({
+                    title: "Error!",
+                    text: "Details not updated! try again",
+                    icon: "error",
+                    button: {
+                      text: "OK",
+                      value: true,
+                      visible: true,
+                      className: "ok-btn",
+                      closeModal: true,
+                    },
+                  });
                 }
               })
               .catch((error) => {
                 console.log(error);
-                alert("Error in updating details");
+                swal({
+                  title: "Error!",
+                  text: "Error in updating details. Something went wrong, please contact site administrator",
+                  icon: "error",
+                  button: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "ok-btn",
+                    closeModal: true,
+                  },
+                });
               })
               .finally(() => {
                 setSubmitting(false);

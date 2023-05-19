@@ -2,6 +2,7 @@ import axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 const InsertUserDeatils = (props) => {
   const navigate = useNavigate();
@@ -101,7 +102,18 @@ const InsertUserDeatils = (props) => {
           })
             .then((response) => {
               if (response.status === 200) {
-                alert("User inserted successfully!");
+                swal({
+                  title: "Success!",
+                  text: "User details added successfully!",
+                  icon: "success",
+                  button: {
+                    text: "OK",
+                    value: true,
+                    visible: true,
+                    className: "ok-btn",
+                    closeModal: true,
+                  },
+                });
                 // resetForm(); // it will clear all the fields and fill initial values
                 props.validateUser(username);
                 navigate("/ots");
@@ -109,7 +121,18 @@ const InsertUserDeatils = (props) => {
               console.log(response);
             })
             .catch((error) => {
-              alert("something went wrong! Please try again");
+              swal({
+                title: "Error!",
+                text: "Error in updating details. Something went wrong, please contact site administrator",
+                icon: "error",
+                button: {
+                  text: "OK",
+                  value: true,
+                  visible: true,
+                  className: "ok-btn",
+                  closeModal: true,
+                },
+              });
               console.log(error);
             })
             .finally(() => {
