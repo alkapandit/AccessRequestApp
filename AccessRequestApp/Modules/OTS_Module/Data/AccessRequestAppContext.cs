@@ -14,6 +14,6 @@ namespace AccessRequestApp.Data
         {
         }
 
-        public DbSet<AccessRequestApp.Models.Requests> Requests { get; set; } = default!;
+        public DbSet<AccessRequestApp.Models.opsusers> opsusers { get; set; } = default!;
     }
 }
