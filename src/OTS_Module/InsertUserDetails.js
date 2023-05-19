@@ -27,43 +27,43 @@ const InsertUserDeatils = (props) => {
         validate={(values) => {
           const errors = {};
           if (!values.username.trim()) {
-            errors.username = "UserName field is required";
+            errors.username = "This field is required";
           }
           if (values.station.trim() === "") {
-            errors.station = "Station field is required";
+            errors.station = "This field is required";
           } else if (values.station.trim().length !== 3) {
             errors.station =
               "Station code should be three characters long only";
           }
           if (values.airline === "") {
-            errors.airline = "Airline field is required";
+            errors.airline = "This field is required";
           }
           if (values.superuser === "") {
-            errors.superuser = "SuperUser field is required";
+            errors.superuser = "This field is required";
           }
           if (values.iceops_User === "") {
-            errors.iceops_User = "Iceops-User field is required";
+            errors.iceops_User = "This field is required";
           }
           if (values.gs_User === "") {
-            errors.gs_User = "Gs-User field is required";
+            errors.gs_User = "This field is required";
           }
           if (values.global_User === "") {
-            errors.global_User = "Global-User field is required";
+            errors.global_User = "This field is required";
           }
           if (values.lm_User === "") {
-            errors.lm_User = "Lm-User field is required";
+            errors.lm_User = "This field is required";
           }
           if (values.ots_User === "") {
-            errors.ots_User = "Ots-User field is required";
+            errors.ots_User = "This field is required";
           }
           if (values.firstname === "") {
-            errors.firstname = "FirstName field is required";
+            errors.firstname = "This field is required";
           }
           if (values.lastname === "") {
-            errors.lastname = "LastName field is required";
+            errors.lastname = "This field is required";
           }
           if (values.flags === "") {
-            errors.flags = "Flags field is required";
+            errors.flags = "This field is required";
           }
           return errors;
         }}
@@ -395,7 +395,7 @@ const InsertUserDeatils = (props) => {
               name="ots_User"
             />
           </div>
-          <button type="submit" className="col-md-8 mx-auto btn btn-primary">
+          <button type="submit" className="col-md-8 mx-auto btn ">
             Submit
           </button>
         </Form>

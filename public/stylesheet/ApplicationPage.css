@@ -6,7 +6,6 @@
   justify-content: right;
   flex-direction: column;
   background-color: white;
-  /* margin-bottom: 5rem; */
 }
 .applicationpage .back-btn {
   width: 15%;
@@ -18,23 +17,20 @@
   background-color: #01426a;
   height: 100vh;
 }
-.column1 button {
-  background-color: rgba(250, 235, 215, 0.622);
+.column1 .link {
+  background-color: rgba(244, 240, 235, 0.622);
   color: #01426a;
   font-weight: bold;
   margin-top: 2.5rem;
 }
-.column1 a.active > button {
-  background: rgb(250, 235, 215);
+.column1 a.active {
+  background: rgb(255, 255, 255);
 }
-.column1 a.active > button:hover {
-  color: #01426a;
-}
-.column1 button:hover {
+.column1 .link:hover {
   background-color: #02304c;
   color: white;
 }
-.column1 button:active {
+.column1 .link:active {
   color: white !important;
 }
 .column2 {

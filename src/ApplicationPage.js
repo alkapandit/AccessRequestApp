@@ -21,8 +21,8 @@ const ApplicationPage = () => {
   return (
     <div className="applicationpage h-100">
       <div className="row h-100 m-0 p-0">
-        <div className="col-md-3 h-100 text-center d-flex flex-column px--3 pt-5 column1">
-          <div className="d-flex align-items-center justify-content-between px-5 mb-5">
+        <div className="col-md-3 h-100 text-center d-flex flex-column align-items-center px-3 pt-5 column1">
+          <div className="d-flex align-items-center justify-content-between px-5 mb-5 w-100">
             <NavLink to="/" className="home-pic">
               <img src="/images/alaska-logo.png" alt="home" />
             </NavLink>
@@ -38,25 +38,17 @@ const ApplicationPage = () => {
               </NavLink>
             )}
           </div>
-          <NavLink to="ots">
-            <button className="btn w-75" type="button">
-              Out Of Service
-            </button>
+          <NavLink to="ots" className="btn w-75 link">
+            Out Of Service
           </NavLink>
-          <NavLink to="melupdate">
-            <button className="btn w-75" type="button">
-              Mel Update
-            </button>
+          <NavLink to="melupdate" className="btn w-75 link">
+            Mel Update
           </NavLink>
-          <NavLink to="etopsmonitor">
-            <button className="btn w-75" type="button">
-              Etops Monitor
-            </button>
+          <NavLink to="etopsmonitor" className="btn w-75 link">
+            Etops Monitor
           </NavLink>
-          <NavLink to="qxtempmonitor">
-            <button className="btn w-75" type="button">
-              QX Temp Monitor
-            </button>
+          <NavLink to="qxtempmonitor" className="btn w-75 link">
+            QX Temp Monitor
           </NavLink>
         </div>
         <div className="col-md-9 h-100 p-0 column2">

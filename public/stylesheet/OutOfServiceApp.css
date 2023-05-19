@@ -57,14 +57,22 @@
   padding: 2rem 5rem;
 }
 .ots-insertUserDetails form button {
+  width: 50%;
+  margin: auto;
+  color: white;
+  padding: 0.3rem 0;
+  text-align: center;
   margin-top: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 15px;
+  border: 2px solid #01426a;
   background-color: #01426a;
 }
 .ots-insertUserDetails form button:hover {
-  background-color: #02304c;
-}
-.ots-insertUserDetails form button:active {
-  color: white !important;
+  background-color: white;
+  color: #01426a;
+  border: 2px solid #01426a;
 }
 
 .ots-updateUserDetails {
