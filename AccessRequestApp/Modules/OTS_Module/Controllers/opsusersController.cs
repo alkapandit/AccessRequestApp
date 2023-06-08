@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AccessRequestApp.Data;
 using AccessRequestApp.Models;
 using AccessRequestApp.DTOs;
+using Microsoft.Data.SqlClient;
 
 namespace AccessRequestApp.Controllers
 {
@@ -22,9 +23,23 @@ namespace AccessRequestApp.Controllers
             _context = context;
         }
 
+        [Route("list-users")]
+        [HttpPost]
+        public async Task<ActionResult<IEnumerable<opsusers>>> GetAllUser(int page, int per_page)
+        {
+            per_page = per_page < 1 ? 10 : per_page;
+            var offset = (page - 1) * per_page;
+            var total = await _context.opsusers.CountAsync();
+            string query = $"SELECT * FROM opsusers ORDER BY username OFFSET "+offset+" "+(offset <10 ? "ROW" : "ROWS")+" FETCH NEXT "+per_page+" ROWS ONLY";
+
+            var users = await _context.opsusers.FromSqlRaw(query).AsNoTracking().ToListAsync();
+            return Ok(new UserListResponseModel{ users = users, pagination = new PaginationResponseModel{ page = page, per_page = per_page, total = total}});
+
+        }
+
         // GET: api/opsusers
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<opsusers>>> GetAllopsusers()
+        public async Task<ActionResult<IEnumerable<opsusers>>> GetOpsusers()
         {
           if (_context.opsusers == null)
           {
@@ -162,5 +177,18 @@ namespace AccessRequestApp.Controllers
     {
         public string Status { get; set; }
         public string Message { get; set; }
+    }
+
+    internal class UserListResponseModel
+    {
+        public List<opsusers> users { get; set; }
+        public PaginationResponseModel pagination { get; set; }
+    }
+
+    internal class PaginationResponseModel
+    {
+        public int page{ get; set; }
+        public int per_page{ get; set; }
+        public int total{ get; set; }
     }
 }
