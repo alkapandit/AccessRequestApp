@@ -140,6 +140,9 @@ function UpdateUserDetails(props) {
                       className: "ok-btn",
                       closeModal: true,
                     },
+                    target: "#pagecontainer",
+                    className: "position-absolute",
+                    position: "bottom-end",
                   });
                   props.setExistingUser(null);
                   props.setUserName("");
@@ -157,6 +160,9 @@ function UpdateUserDetails(props) {
                       className: "ok-btn",
                       closeModal: true,
                     },
+                    target: "#pagecontainer",
+                    className: "position-absolute",
+                    position: "bottom-end",
                   });
                 }
               })
@@ -173,6 +179,9 @@ function UpdateUserDetails(props) {
                     className: "ok-btn",
                     closeModal: true,
                   },
+                  target: "#pagecontainer",
+                  className: "position-absolute",
+                  position: "bottom-end",
                 });
               })
               .finally(() => {

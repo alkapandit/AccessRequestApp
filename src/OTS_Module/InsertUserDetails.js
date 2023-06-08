@@ -113,6 +113,9 @@ const InsertUserDeatils = (props) => {
                     className: "ok-btn",
                     closeModal: true,
                   },
+                  target: "#pagecontainer",
+                  className: "position-absolute",
+                  position: "bottom-end",
                 });
                 // resetForm(); // it will clear all the fields and fill initial values
                 props.validateUser(username);
@@ -132,6 +135,9 @@ const InsertUserDeatils = (props) => {
                   className: "ok-btn",
                   closeModal: true,
                 },
+                target: "#pagecontainer",
+                className: "position-absolute",
+                position: "bottom-end",
               });
               console.log(error);
             })

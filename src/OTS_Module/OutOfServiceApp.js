@@ -5,6 +5,7 @@ import UserDetails from "./UserDetails";
 import { Route, Routes, useNavigate } from "react-router-dom";
 import UpdateUserDetails from "./UpdateUserDetails";
 import swal from "sweetalert";
+import AllUsersList from "./AllUsersList";
 
 const OutOfServiceApp = (props) => {
   const [existingUser, setExistingUser] = useState();
@@ -12,7 +13,9 @@ const OutOfServiceApp = (props) => {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
 
-  const validateUser = (username) => {
+  console.log(existingUser);
+
+  const validateUser = (username, update = false) => {
     if (username === "") {
       swal({
         title: "OOPS!",
@@ -25,6 +28,9 @@ const OutOfServiceApp = (props) => {
           className: "ok-btn",
           closeModal: true,
         },
+        target: "#pagecontainer",
+        className: "position-absolute",
+        position: "bottom-end",
       });
 
       setUserData(null);
@@ -64,6 +70,9 @@ const OutOfServiceApp = (props) => {
                 closeModal: true,
               },
             },
+            target: "#pagecontainer",
+            className: "position-absolute",
+            position: "bottom-end",
           }).then((choice) => {
             console.log(choice);
             if (choice) {
@@ -75,7 +84,9 @@ const OutOfServiceApp = (props) => {
         }
       })
       .finally(() => {
-        navigate("/ots");
+        if (!update) {
+          navigate("/ots");
+        }
       });
   };
   return (
@@ -89,6 +100,7 @@ const OutOfServiceApp = (props) => {
       >
         <label htmlFor="username">
           Please enter username to validate user :
+          <br />
         </label>
         <input
           type="text"
@@ -103,7 +115,13 @@ const OutOfServiceApp = (props) => {
         <button type="submit" className="btn">
           Validate User
         </button>
+        <p className="m-0 notes">
+          Note: Fullname - Emma Stone, Username - Estone
+        </p>
       </form>
+      {typeof existingUser === "undefined" && (
+        <AllUsersList validateUser={validateUser} />
+      )}
       {existingUser && (
         <Routes>
           <Route path="/" element={<UserDetails userData={userData} />} />

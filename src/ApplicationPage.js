@@ -51,33 +51,34 @@ const ApplicationPage = () => {
             QX Temp Monitor
           </NavLink>
         </div>
-        <div className="col-md-9 h-100 p-0 column2">
-          <div className="">
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <div className="row m-0 mainpage">
-                    <div className="col-md-6 py-5 px-4">
-                      <div className="user-column h-100 d-flex align-items-center px-5">
-                        <p>Welcome To Airline</p>
-                      </div>
-                    </div>
-                    <div className="col-md-6 py-5 px-4">
-                      <div className="logo-column h-100 ">
-                        <img src="/images/alaska-logo.png" alt="pic1" />
-                        <img src="/images/horizon-logo.png" alt="pic2" />
-                      </div>
+        <div
+          className="col-md-9 h-100 p-0 column2 position-relative"
+          id="pagecontainer"
+        >
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div className="row m-0 mainpage">
+                  <div className="col-md-6 py-5 px-4">
+                    <div className="user-column h-100 d-flex align-items-center px-5">
+                      <p>Welcome To Airline</p>
                     </div>
                   </div>
-                }
-              />
-              <Route path="/etopsmonitor" element={<EtopsMonitorApp />} />
-              <Route path="/ots/*" element={<OutOfServiceApp />} />
-              <Route path="/melupdate" element={<MelUpdateApp />} />
-              <Route path="/qxtempmonitor" element={<QXTempMonitorApp />} />
-            </Routes>
-          </div>
+                  <div className="col-md-6 py-5 px-4">
+                    <div className="logo-column h-100 ">
+                      <img src="/images/alaska-logo.png" alt="pic1" />
+                      <img src="/images/horizon-logo.png" alt="pic2" />
+                    </div>
+                  </div>
+                </div>
+              }
+            />
+            <Route path="/etopsmonitor" element={<EtopsMonitorApp />} />
+            <Route path="/ots/*" element={<OutOfServiceApp />} />
+            <Route path="/melupdate" element={<MelUpdateApp />} />
+            <Route path="/qxtempmonitor" element={<QXTempMonitorApp />} />
+          </Routes>
         </div>
       </div>
     </div>

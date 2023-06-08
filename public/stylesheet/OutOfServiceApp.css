@@ -10,9 +10,7 @@
   font-weight: 600;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
 }
-.ots .uservalidate span {
-  font-size: large;
-}
+
 .ots .uservalidate input {
   margin-right: 5rem;
   margin-left: 1rem;
@@ -36,6 +34,12 @@
   background-color: white;
   font-weight: 600;
   color: #01426a;
+}
+.uservalidate .notes {
+  font-size: 0.7rem;
+  color: #848586;
+  line-height: 10%;
+  font-weight: 500;
 }
 
 .ots-insertUserDetails {
@@ -203,4 +207,30 @@
   color: green;
   border-color: green;
   background-color: white !important;
+}
+.ots-userList {
+  padding: 1rem 0.5rem;
+}
+.ots-userList ul {
+  margin: 1rem 2rem;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+  list-style: none;
+}
+.ots-userList ul .headings {
+  padding: 1.2rem 0rem;
+  font-weight: 600;
+  color: #01426a;
+  border-bottom-color: rgb(158, 158, 158);
+}
+.ots-userList ul li {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #848586;
+  display: flex;
+  align-items: center;
+  padding: 0.6rem 0rem;
+  border-bottom: 2px solid rgb(246, 245, 245);
+}
+.ots-userList ul li i {
+  cursor: pointer;
 }
