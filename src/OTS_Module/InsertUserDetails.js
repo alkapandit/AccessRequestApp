@@ -1,11 +1,14 @@
 import axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import { setLoading } from "../Store/reducer/commomSlice";
 
 const InsertUserDeatils = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   return (
     <div className="ots-insertUserDetails">
       <h2>Insert User Details</h2>
@@ -95,6 +98,7 @@ const InsertUserDeatils = (props) => {
             iceops_User: iceops_User === "null" ? null : iceops_User,
             ots_User: ots_User === "null" ? null : ots_User,
           };
+          dispatch(setLoading(true));
           axios({
             url: process.env.REACT_APP_API_URL + "/opsusers",
             method: "POST",
@@ -142,6 +146,7 @@ const InsertUserDeatils = (props) => {
               console.log(error);
             })
             .finally(() => {
+              dispatch(setLoading(false));
               setSubmitting(false);
             });
         }}

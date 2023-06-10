@@ -4,10 +4,13 @@ import OutOfServiceApp from "./OTS_Module/OutOfServiceApp";
 import EtopsMonitorApp from "./ETOPS_Monitor_Module/EtopsMonitorApp";
 import MelUpdateApp from "./MEL_Update_Module/MelUpdateApp";
 import QXTempMonitorApp from "./QX_Temp_Monitor_Module/QXTempMonitorApp";
+import { useSelector } from "react-redux";
 
 const ApplicationPage = () => {
   const [backBtn, setBackBtn] = useState(true);
   const navigate = useNavigate();
+
+  const { isLoading } = useSelector((state) => state.common);
 
   useEffect(() => {
     if (window.location.pathname === "/") {
@@ -55,6 +58,21 @@ const ApplicationPage = () => {
           className="col-md-9 h-100 p-0 column2 position-relative"
           id="pagecontainer"
         >
+          {isLoading && (
+            <div
+              className="loading-content"
+              style={{
+                height: `${
+                  document.querySelector("#pagecontainer").scrollHeight
+                }px`,
+              }}
+            >
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          )}
+
           <Routes>
             <Route
               path="/"

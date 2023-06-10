@@ -1,10 +1,13 @@
 import axios from "axios";
 import { ErrorMessage, Field, Form, Formik } from "formik";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import { setLoading } from "../Store/reducer/commomSlice";
 
 function UpdateUserDetails(props) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   return (
     <div>
@@ -120,6 +123,7 @@ function UpdateUserDetails(props) {
               flags: flags === "null" ? null : flags,
             };
             console.log(payload);
+            dispatch(setLoading(true));
             axios({
               url: process.env.REACT_APP_API_URL + "/opsusers/" + username,
               method: "PUT",
@@ -185,6 +189,7 @@ function UpdateUserDetails(props) {
                 });
               })
               .finally(() => {
+                dispatch(setLoading(false));
                 setSubmitting(false);
               });
           }}

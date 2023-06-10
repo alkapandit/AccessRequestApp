@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Pagination from "../Pagination";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setLoading } from "../Store/reducer/commomSlice";
 
 function AllUsersList(props) {
   const [userData, setUserData] = useState([]);
@@ -12,7 +14,10 @@ function AllUsersList(props) {
   });
   const navigate = useNavigate();
 
+  const dispatch = useDispatch();
+
   const fetchAllUsers = (pageNo = 0) => {
+    dispatch(setLoading(true));
     axios(process.env.REACT_APP_API_URL + "/opsusers/list-users", {
       method: "POST",
       params: {
@@ -27,6 +32,9 @@ function AllUsersList(props) {
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        dispatch(setLoading(false));
       });
   };
 

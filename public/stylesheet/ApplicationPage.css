@@ -59,3 +59,12 @@
 .logo-column {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.loading-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: #5b5b5c9a;
+}

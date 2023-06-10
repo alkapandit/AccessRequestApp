@@ -6,12 +6,16 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import UpdateUserDetails from "./UpdateUserDetails";
 import swal from "sweetalert";
 import AllUsersList from "./AllUsersList";
+import { useDispatch } from "react-redux";
+import { setLoading } from "../Store/reducer/commomSlice";
 
 const OutOfServiceApp = (props) => {
   const [existingUser, setExistingUser] = useState();
   const [userData, setUserData] = useState({});
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
 
   console.log(existingUser);
 
@@ -37,6 +41,7 @@ const OutOfServiceApp = (props) => {
       setExistingUser(null);
       return;
     }
+    dispatch(setLoading(true));
     axios({
       url: process.env.REACT_APP_API_URL + "/opsusers/" + username,
       method: "GET",
@@ -84,6 +89,7 @@ const OutOfServiceApp = (props) => {
         }
       })
       .finally(() => {
+        dispatch(setLoading(false));
         if (!update) {
           navigate("/ots");
         }
