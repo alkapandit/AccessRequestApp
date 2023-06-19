@@ -100,7 +100,7 @@ const InsertUserDeatils = () => {
           };
           dispatch(setLoading(true));
           axios({
-            url: process.env.REACT_APP_OTS_URL + "/opsusers",
+            url: process.env.REACT_APP_API_URL + "/opsusers",
             method: "POST",
             data: payload,
           })
@@ -122,7 +122,7 @@ const InsertUserDeatils = () => {
                   position: "bottom-end",
                 });
                 // resetForm(); // it will clear all the fields and fill initial values
-                navigate("/ots/details/" + username);
+                navigate("/qxtempmonitor/details/" + username);
               }
               console.log(response);
             })

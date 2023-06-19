@@ -18,7 +18,7 @@ function AllUsersList() {
 
   const fetchAllUsers = (pageNo = 0) => {
     dispatch(setLoading(true));
-    axios(process.env.REACT_APP_OTS_URL + "/opsusers/list-users", {
+    axios(process.env.REACT_APP_API_URL + "/opsusers/list-users", {
       method: "POST",
       params: {
         page: pageNo,
@@ -63,7 +63,7 @@ function AllUsersList() {
                   <i
                     className="fa-solid fa-eye"
                     onClick={() => {
-                      navigate("/ots/details/" + d?.username);
+                      navigate("/melupdate/details/" + d?.username);
                     }}
                   ></i>
                 </div>
@@ -71,7 +71,7 @@ function AllUsersList() {
                   <i
                     className="fa-solid fa-pen-to-square"
                     onClick={() => {
-                      navigate("/ots/update/" + d?.username);
+                      navigate("/melupdate/update/" + d?.username);
                     }}
                   ></i>
                 </div>

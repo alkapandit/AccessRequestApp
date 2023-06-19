@@ -16,7 +16,7 @@ function UpdateUserDetails() {
   useEffect(() => {
     dispatch(setLoading(true));
     axios({
-      url: process.env.REACT_APP_OTS_URL + "/opsusers/" + username,
+      url: process.env.REACT_APP_API_URL + "/opsusers/" + username,
       method: "GET",
     })
       .then((response) => {
@@ -53,7 +53,7 @@ function UpdateUserDetails() {
           }).then((choice) => {
             console.log(choice);
             if (choice) {
-              navigate("/ots/add");
+              navigate("/melupdate/add");
             }
           });
         } else {
@@ -176,7 +176,7 @@ function UpdateUserDetails() {
                 console.log(payload);
                 dispatch(setLoading(true));
                 axios({
-                  url: process.env.REACT_APP_OTS_URL + "/opsusers/" + username,
+                  url: process.env.REACT_APP_API_URL + "/opsusers/" + username,
                   method: "PUT",
                   data: payload,
                 })

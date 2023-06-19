@@ -6,20 +6,12 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import UpdateUserDetails from "./UpdateUserDetails";
 import swal from "sweetalert";
 import AllUsersList from "./AllUsersList";
-import { useDispatch } from "react-redux";
-import { setLoading } from "../Store/reducer/commomSlice";
 
 const OutOfServiceApp = (props) => {
-  const [existingUser, setExistingUser] = useState();
-  const [userData, setUserData] = useState({});
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
 
-  const dispatch = useDispatch();
-
-  console.log(existingUser);
-
-  const validateUser = (username, update = false) => {
+  const validateUser = (username) => {
     if (username === "") {
       swal({
         title: "OOPS!",
@@ -37,63 +29,9 @@ const OutOfServiceApp = (props) => {
         position: "bottom-end",
       });
 
-      setUserData(null);
-      setExistingUser(null);
       return;
     }
-    dispatch(setLoading(true));
-    axios({
-      url: process.env.REACT_APP_API_URL + "/opsusers/" + username,
-      method: "GET",
-    })
-      .then((response) => {
-        console.log(response.data);
-        setUserData(response.data);
-        setExistingUser(true);
-      })
-      .catch((error) => {
-        console.log(error.response.status);
-        if (error.response.status === 404) {
-          swal({
-            title: "User doesn't exist!",
-            text: "Do you want to add new record for this user?",
-            icon: "info",
-            dangerMode: true,
-            buttons: {
-              confirm: {
-                text: "Confirm",
-                value: true,
-                visible: true,
-                className: "confirm-btn",
-                closeModal: true,
-              },
-              cancel: {
-                text: "Cancel",
-                value: null,
-                visible: true,
-                className: "cancel-btn",
-                closeModal: true,
-              },
-            },
-            target: "#pagecontainer",
-            className: "position-absolute",
-            position: "bottom-end",
-          }).then((choice) => {
-            console.log(choice);
-            if (choice) {
-              setExistingUser(false);
-            }
-          });
-        } else {
-          console("Something went wrong! Please try again later");
-        }
-      })
-      .finally(() => {
-        dispatch(setLoading(false));
-        if (!update) {
-          navigate("/ots");
-        }
-      });
+    navigate("details/" + userName + "?" + new Date().getTime());
   };
   return (
     <div className="ots">
@@ -125,28 +63,16 @@ const OutOfServiceApp = (props) => {
           Note: Fullname - Emma Stone, Username - Estone
         </p>
       </form>
-      {typeof existingUser === "undefined" && (
-        <AllUsersList validateUser={validateUser} />
-      )}
-      {existingUser && (
-        <Routes>
-          <Route path="/" element={<UserDetails userData={userData} />} />
-          <Route
-            path="/updateuserdetails"
-            element={
-              <UpdateUserDetails
-                userData={userData}
-                setExistingUser={setExistingUser}
-                setUserName={setUserName}
-                validateUser={validateUser}
-              />
-            }
-          />
-        </Routes>
-      )}
-      {existingUser === false && (
-        <InsertUserDeatils validateUser={validateUser} />
-      )}
+
+      <Routes>
+        <Route
+          path="/"
+          element={<AllUsersList validateUser={validateUser} />}
+        />
+        <Route path="/details/:username" element={<UserDetails />} />
+        <Route path="/update/:username" element={<UpdateUserDetails />} />
+        <Route path="/add" element={<InsertUserDeatils />} />
+      </Routes>
     </div>
   );
 };

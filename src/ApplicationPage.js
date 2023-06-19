@@ -92,10 +92,10 @@ const ApplicationPage = () => {
                 </div>
               }
             />
-            <Route path="/etopsmonitor" element={<EtopsMonitorApp />} />
+            <Route path="/etopsmonitor/*" element={<EtopsMonitorApp />} />
             <Route path="/ots/*" element={<OutOfServiceApp />} />
-            <Route path="/melupdate" element={<MelUpdateApp />} />
-            <Route path="/qxtempmonitor" element={<QXTempMonitorApp />} />
+            <Route path="/melupdate/*" element={<MelUpdateApp />} />
+            <Route path="/qxtempmonitor/*" element={<QXTempMonitorApp />} />
           </Routes>
         </div>
       </div>

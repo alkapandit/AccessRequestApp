@@ -100,7 +100,7 @@ const InsertUserDeatils = () => {
           };
           dispatch(setLoading(true));
           axios({
-            url: process.env.REACT_APP_OTS_URL + "/opsusers",
+            url: process.env.REACT_APP_API_URL + "/opsusers",
             method: "POST",
             data: payload,
           })
